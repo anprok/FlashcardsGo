@@ -1,0 +1,19 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"errors\"\n\t\"fmt\"\n)\n\nfunc checkAge(age\
+    \ int) error {\n\tswitch {\n\tcase age < ?:\n\t\treturn errors.New(\"age can't\
+    \ be negative\")\n\tcase age == 0:\n\t\treturn ?\n\tcase age > ? && <= 4:\n\t\t\
+    return ?\n\tdefault:\n\t\treturn ?\n\t}\n}\n\n// DO NOT delete or modify the contents\
+    \ of the main() function!\nfunc main() {\n\tvar age int\n\tfmt.Scanln(&age)\n\n\
+    \terr := checkAge(age)\n\tif err != nil {\n\t\tfmt.Println(err)\n\t} else {\n\
+    \        fmt.Println(\"you're old enough to learn how to code in Go\")\n    }\n\
+    }"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23491#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 03 Nov 2022 20:45:55 UTC"
+record: -1

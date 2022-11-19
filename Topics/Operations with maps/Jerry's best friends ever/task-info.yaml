@@ -1,0 +1,24 @@
+type: code
+custom_name: Jerry's best friends ever!
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"fmt\"\n\t\"log\"\n)\n\nfunc createSet() map[string]bool\
+    \ {\n    // fix the type of the bestFriends map values.\n\tbestFriends := map[string]string\
+    \ {\n\t\t\"George Costanza\": \"true\",\n\t\t\"Elaine Benes\": \"true\",\n\t\t\
+    \"Cosmo Kramer\": \"true\",\n\t}\n\n\treturn bestFriends // do not delete this\
+    \ line!\n}\n\n// DO NOT delete or modify the contents of the main function!\n\
+    func main() {\n\tmySlice := make([]string, 2)\n\tfmt.Scanln(&mySlice[0], &mySlice[1])\n\
+    \n\tbfSet := createSet()\n\n\tif !bfSet[mySlice[0]+\" \"+mySlice[1]] {\n\t\tlog.Fatal(\"\
+    bool type sets should have 'true' as map values!\")\n\t}\n\tfmt.Println(mySlice[0],\
+    \ mySlice[1], \"is one of Jerry's best friends\")\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17211#comment
+status: Solved
+feedback:
+  message: |-
+    <html>George Costanza is one of Jerry's best friends
+
+    Well done! 👓🧑🏻‍🦲👔</html>
+  time: "Fri, 11 Nov 2022 21:51:58 UTC"
+record: -1

@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"os\"\n)\n\nfunc main() {\n\tlogger := log.New(os.Stdout,\
+    \ \"\", log.Lmsgprefix)\n\tvar array = []int64{6, 8, 11}\n\tfor i, num := range\
+    \ array {\n\t\tlogger.Println(\"Factorial of a number %d is %d\\n\", i, factorial(num))\n\
+    \t}\n}\n\nfunc factorial(num int64) int64 {\n\tres := int64(0)\n\tfor i := int64(0);\
+    \ i < num; i++ {\n\t\tres *= i\n\t}\n\treturn res\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23085#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Tue, 08 Nov 2022 21:09:40 UTC"
+record: -1

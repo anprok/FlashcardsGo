@@ -1,0 +1,5 @@
+content:
+- Theory
+- Using defer to print a reversed string
+- Scoped deferred statements
+- Most basic defer implementation

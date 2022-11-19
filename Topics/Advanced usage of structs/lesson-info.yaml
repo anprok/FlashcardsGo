@@ -1,0 +1,6 @@
+content:
+- Theory
+- Accessing promoted fields directly
+- What are struct tags
+- Fixing the anonymous struct declaration
+- Assigning values to anonymous fields

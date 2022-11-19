@@ -1,0 +1,17 @@
+<h2>Printing values from non-existing keys</h2>
+<p>Suppose you have a Go program that has the <code class="language-go">animals</code> map:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var animals = map[string]string{
+        "dog":     "🐕",
+        "horse":   "🐎",
+        "rooster": "🐓",
+        "pig":     "🐖",
+        "monkey":  "🐒",
+    }
+    fmt.Println(animals["cat"])
+}</code></pre>
+<p>What would be the output of the <code class="language-go">fmt.Println(animals["cat"])</code> statement?</p>

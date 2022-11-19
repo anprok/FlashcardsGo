@@ -1,0 +1,14 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main() {\n    // Create the array\
+    \ and assign 88.6 to its [1][0][2] element below:\n\tarray := ?\n\n    // DO NOT\
+    \ delete, this line prints the array!\n\tfmt.Println(array)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/14878#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 03 Nov 2022 11:29:47 UTC"
+record: -1

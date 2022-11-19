@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nconst (\n\tFiveTasks  = 5\n\tThreeTasks\
+    \ = 3\n\tOneTask    = 1\n)\n\nfunc main() {\n    var activeTasks, pendingTasks\
+    \ int\n    fmt.Scan(&activeTasks, &pendingTasks)\n\n    totalTaskCount := ? +\
+    \ ?\n\n    switch {\n\tcase totalTaskCount >= FiveTasks:\n\t\tfmt.Println(\"?\"\
+    )\n\t// Write the rest of the switch case here\n\t}\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20827#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 19 Nov 2022 18:59:24 UTC"
+record: -1

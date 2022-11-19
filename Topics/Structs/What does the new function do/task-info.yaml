@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: It allocates memory for all the fields of the <code>germany</code> struct
+- text: It sets default values to each struct field
+- text: It returns a pointer to the struct <code>(*Country)</code>
+- text: It sets random values to each struct field
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23509#comment
+status: Solved
+record: -1
+custom_name: What does the new function do?
+local_check: false

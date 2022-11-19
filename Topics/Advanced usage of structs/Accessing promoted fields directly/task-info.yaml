@@ -1,0 +1,20 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\ntype FootballPlayer struct {\n\tName  \
+    \   string\n\tAge      int\n\tPosition string\n\t? // add 'Team' as an anonymous\
+    \ field within the FootballPlayer struct\n}\n\ntype Team struct {\n\tteamName\
+    \  string\n\tcoachName string\n}\n\nfunc main() {\n\t// do not delete the 'player'\
+    \ FootballPlayer declaration!\n\tvar player FootballPlayer\n\tfmt.Scanln(&player.Name,\
+    \ &player.Age, &player.Position)\n\n\t// do not delete the code block below:\n\
+    \tvar tn, cn string\n\tfmt.Scanln(&tn, &cn)\n\n\t// Assign the two variables 'tn'\
+    \ and 'cn' to the promoted fields:\n\tplayer.? = ?\n\tplayer.? = ?\n\n\tfmt.Println(?)\
+    \ // print the player struct here!\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17502#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Wed, 09 Nov 2022 21:57:05 UTC"
+record: -1

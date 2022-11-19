@@ -1,0 +1,14 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n    \"fmt\"\n    // import the rand package here.\n\
+    )\n\n// DO NOT change the code within the main function!\nfunc main() {\n    var\
+    \ num int64\n\tfmt.Scanf(\"%d\", &num)\n\n\tfmt.Println(rand.Int63n(num))\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15908#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 03 Nov 2022 11:00:30 UTC"
+record: -1

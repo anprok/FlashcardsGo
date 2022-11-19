@@ -1,0 +1,19 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main() {\n\t// DO NOT delete the code\
+    \ block below!\n\tfruits := map[string]string{\"pear\": \"\U0001f350\", \"apple\"\
+    : \"\U0001f34e\", \"banana\": \"\U0001f34c\"}\n\tvar key string\n\tfmt.Scanln(&key)\n\
+    \n\t// Write below the code to check if the input key exists in the map:\n\t//\
+    \ Try to use `ok` as the check variable name to follow the Go code style conventions!\n\
+    \tif val, ? := fruits[?]; ? {\n\t\tfmt.Println(\"The fruit\", ?, ?, \"is in the\
+    \ map\")\n\t\treturn\n\t}\n\tfmt.Println(\"The fruit\", ?, \"is not in the map\"\
+    )\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23502#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sun, 06 Nov 2022 21:19:09 UTC"
+record: -1

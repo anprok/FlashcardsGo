@@ -1,0 +1,113 @@
+<h2>Panic and recover</h2>
+<html><body><p>All programming languages have a flow of execution. Commonly, the execution goes line by line. However, you can add the control statements and create an alternative flow (using the <code class="language-go">if</code> statement) or loop some lines (with the <code class="language-go">for</code> statement). You can also add statements like <code class="language-go">switch</code> or <code class="language-go">goto</code> to that list. It stops working when the programming language tries to process abnormal conditions.</p>
+<p>Incorrect data types, bad input signals, unobserved code errors, or corrupted files — all can cause an interruption of the flow. In such cases, running the program usually stops with an error. However, Golang has statements that can process unexpected cases behavior and return the control of the flow or help to end the program correctly. Welcome to the new topic about Golang control statements.</p>
+<h5 id="panic">Panic</h5>
+<p>The Go compiler always checks for errors during the building process (before you run your program). It catches common types of errors: syntax errors, unclosed brackets, unused variables, type errors, and more. Despite that, the code runtime is a dynamic environment, and some errors can occur during execution of your code.</p>
+<p>Sometimes, you can get corrupted data from the input. You can pass an invalid variable pointer, get out of the range of a slice (or an array), or miss the <code class="language-go">nil</code> data. These are examples of abnormal conditions during runtime. Remember: the more complex your code becomes, the higher the chances to run into errors are.</p>
+<p>Now let's take a look at the output of the following Go program, where we try to pass <code class="language-go">1</code> and <code class="language-go">0</code> as values:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var num1, num2 int
+    fmt.Scan(&amp;num1, &amp;num2)
+
+    fmt.Println(num1 / num2)
+}
+
+// Input:
+// 1 0
+// Output:
+// panic: runtime error: integer divide by zero
+</code></pre>
+<p>The above program returns the result of division of two numbers. However, since it is not possible to divide an integer number by zero, the program starts an event called <code class="language-go">panic</code>. When the code starts panicking, the normal execution flow of the program stops, and it prints an error message. In simple terms, the <code class="language-go">panic</code> event happens when something goes unexpectedly wrong during execution.</p>
+<p>You can also initiate the panic event directly. With the <code class="language-go">panic()</code> function, you can terminate the execution by yourself. The <code class="language-go">panic()</code> function can take any data type as an argument and then print it to the output:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    panic("Something has gone wrong!")
+    fmt.Println("Not printed because of the panic")
+}
+
+// Output:
+// panic: Something has gone wrong!
+</code></pre>
+<p>The program doesn't execute the lines of code below the panic. This makes sense because the execution flow is terminated. However, see what happens if you have the <code class="language-go">defer</code> statement before the <code class="language-go">panic()</code>:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    defer fmt.Println("Will be printed anyway!")
+    panic("Something has gone wrong!")
+}
+
+// Output:
+// Will be printed anyway!
+// panic: Something has gone wrong!
+</code></pre>
+<p>The <code class="language-go">defer</code> statement works! The <code class="language-go">panic()</code> function has no effect on the list of deferred calls (if you declare it before the panic).</p>
+<h5 id="recover">Recover</h5>
+<p>A panic is an emergency end of the program. An unexpected end can lead to corrupted files or databases. Naturally, it's not great when your program starts panicking as part of the data processing server. You can't prevent the panic, but you can reduce the possible damage (close the file, break the connection to the database, switch to an alternative data handler).</p>
+<p>At the end of the previous section, you saw that <code class="language-go">panic</code> doesn't cancel the <code class="language-go">defer</code> statement. To process the panic, you need to get the signal about it inside the <code class="language-go">defer</code> scope. Let's return to the first example of the panic section. The code below catches the zero divide condition and prints a custom message about it.</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var num1, num2 int
+    fmt.Scan(&amp;num1, &amp;num2)
+
+    defer func() {
+        onPanic := recover() // catch the panic
+        if onPanic != nil {
+            fmt.Printf("%d and %d are unacceptable for integer division\n", num1, num2)
+        }
+    }()
+
+    fmt.Println(num1 / num2)
+}
+
+// Input:
+// 1 0
+// Output:
+// 1 and 0 are unacceptable for integer division
+</code></pre>
+<p></p><div class="alert alert-primary">Take notice that the <code class="language-go">defer</code> statement goes after the <code class="language-go">fmt.Scan(&amp;num1, &amp;num2)</code> line. This is necessary to pass the scanned values of <code class="language-go">num1</code> and <code class="language-go">num2</code> to the <code class="language-go">fmt.Printf()</code> statement of the deferred anonymous function.</div><p></p>
+<p>The program still panics, but now you control the process! Now you get a meaningful error message. Also, you can log this error message to a file, for example. Or you can handle the error and try to execute the program again. The method of ending the program after a serious error during runtime is called a <a href="https://en.wikipedia.org/wiki/Graceful_exit" rel="noopener noreferrer nofollow" target="_blank">Graceful exit</a>.</p>
+<p>You can benefit from a graceful exit after a panic in Go by using the <code class="language-go">recover()</code> function. The <code class="language-go">recover()</code> function gets the signal of the panic and returns the information about error that occurred during runtime.</p>
+<h5 id="best-practices">Best practices</h5>
+<p>One of the best practices with <code class="language-go">panic()</code> in Go is to not use it with production code. The <code class="language-go">panic()</code> function is not an appropriate error report tool. On many occasions, it is just used as a debug tool. A <code class="language-go">panic</code> event is more like an exception that your program calls if it faces an abnormal error situation. Therefore, when you write the code, leave the <code class="language-go">panic</code> events to the runtime. Instead of making the program panic, it is better to return an appropriate error message (don't panic, return an error!).</p>
+<p>The example with the division of two numbers is just a demonstration of the recovery process. It is important to say that the use of that pattern is justified in cases when you use external modules or someone else's code. However, if you write code yourself, you should know how it works. You should also be able to predict the cases of abnormal conditions and handle them. Since division by zero is a common error, you could handle the code from the previous example without <code class="language-go">recover()</code>:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var num1, num2 int
+    fmt.Scan(&amp;num1, &amp;num2)
+
+    if num2 == 0 {
+        fmt.Printf("%d and %d are unacceptable for integer division\n", num1, num2)
+    } else {
+        fmt.Println(num1 / num2)
+    }
+}
+
+// Input:
+// 1 0
+// Output:
+// 1 and 0 are unacceptable for integer division
+</code></pre>
+<p>Soon you will get acquainted with goroutines. It is a complex topic, but now, you should learn something about the features of the <code class="language-go">recover</code> process in goroutines. If the goroutine starts panicking, the <code class="language-go">recover()</code> function must be defined in the same goroutine. If you try to catch the goroutine panic from the main scope or another goroutine, your program will crash.</p>
+<h5 id="conclusion">Conclusion</h5>
+<p>A <code class="language-go">panic</code> is an event that you don't expect. Try to minimize cases that can cause panic events in your code. Checking for a <code class="language-go">nil</code> data is suitable in most cases. If you are working with numbers, remember to add error checking for <code class="language-go">0</code> values. Don't use strict comparison for bounds of the range: try to replace a <code class="language-go">==</code> statement for a <code class="language-go">&gt;=</code> or <code class="language-go">&lt;=</code>. When working with strings, check the incoming string for unsuitable symbols: create a set of characters to use, such as a regexp, for example. These simple rules will make your code more stable.</p>
+<p>Now, here's a recap of what this topic has covered:</p>
+<ul>
+<li>a panic is an event caused by abnormal conditions during runtime;</li>
+<li>you can use the <code class="language-go">panic()</code> function to call the panic event directly;</li>
+<li>recover is the process that can handle a certain panic event.</li>
+</ul></body></html>

@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main() {\n    // DO NOT delete the\
+    \ code block below, it takes as an input 2 random strings\n\tvar a, b string\n\
+    \tfmt.Scanln(&a, &b)\n\n\tword := ? // concatenate a and b here!\n\tfmt.Println(?,\
+    \ ?(?)) // print 'word' followed by its length here!\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20354#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 03 Nov 2022 19:53:49 UTC"
+record: -1

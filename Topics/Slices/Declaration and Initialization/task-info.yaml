@@ -1,0 +1,26 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: "s := make([]string, 5)"
+- text: "var s = []string{\"my string\"}"
+- text: "var s = make([]int, 10)"
+- text: "s := []int{10, 2}"
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15658#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 03 Nov 2022 12:59:07 UTC"
+record: -1
+selected_options:
+- 0
+- 1
+- 2
+- 3
+local_check: false

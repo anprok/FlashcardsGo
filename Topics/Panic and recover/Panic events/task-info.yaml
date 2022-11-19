@@ -1,0 +1,18 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: Getting out of the slice bounds
+- text: Unclosed brackets
+- text: Multiplying integer and float variables
+- text: Dividing an integer number by zero
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20821#comment
+status: Solved
+record: -1
+local_check: false

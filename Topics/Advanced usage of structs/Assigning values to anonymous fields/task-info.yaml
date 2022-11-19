@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\n// DO NOT modify the declaration of the\
+    \ Employee struct!\ntype Employee struct {\n\tstring\n\tfloat64\n}\n\nfunc main()\
+    \ {\n\tvar emp Employee\n    // Assign values to the two anonymous fields of 'emp'\
+    \ below: \n\n\tcheckAnonymousField(emp) // DO NOT delete this line!\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23512#comment
+status: Solved
+feedback:
+  message: <html>Passed. Well done!</html>
+  time: "Wed, 09 Nov 2022 22:04:02 UTC"
+record: -1

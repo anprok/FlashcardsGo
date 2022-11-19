@@ -1,0 +1,32 @@
+<h2>Temperature converter</h2>
+<p>Below you will see a Go program that converts the input <code class="language-go">temperature</code> from Fahrenheit to Celsius and vice-versa:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var temperature float64
+    var unit string
+    fmt.Scanln(&amp;temperature, &amp;unit)
+
+    if unit == "F" {
+        temperature = ... // code to transform from "F" to "C" goes here
+        fmt.Printf("%.2f C", temperature)
+    }
+
+    if unit == "C" {
+        temperature = ... // code to transform from "C" to "F" goes here
+        fmt.Printf("%.2f F", temperature)
+    }
+}</code></pre>
+<p></p><div class="alert alert-primary">
+<ul>
+<li>The formula to convert from Fahrenheit to Celsius is: <span class="math-tex">\((temperature - 32) * 5/9\)</span></li>
+<li>The formula to convert from Celsius to Fahrenheit is: <span class="math-tex">\((temperature*9/5) + 32\)</span></li></ul></div>
+<p>Your task is to use functional decomposition and create three functions:</p>
+<ul>
+<li> <code class="language-go">fahrenheitToCelsius()</code> which converts the <code class="language-go">temperature</code> from Fahrenheit to Celsius and then prints the converted value;</li>
+<li> <code class="language-go">celsiusToFahrenheit()</code> which converts the <code class="language-go">temperature</code> from Celsius to Fahrenheit and then prints the converted value;</li>
+<li><code class="language-go">convertTemperature()</code> that takes as arguments the <code class="language-go">temperature</code> and the <code class="language-go">unit</code> and then calls the correct temperature conversion function using an <code class="language-go">if</code> statement based on the <code class="language-go">unit</code>.</li>
+</ul>
+<p></p><div class="alert alert-primary">Note that for this task, you must not modify or delete any code within the <code class="language-go">main()</code> function!</div><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">42 F</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">5.56 C</code></pre><br><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">22 C</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">71.60 F</code></pre><br><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">32 F</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">0.00 C</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>

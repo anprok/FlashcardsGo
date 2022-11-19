@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc panicHandler() {\n\tsignal := recover()\n\
+    \n\tswitch signal {\n\tcase \"first\":\n\t\tfmt.Println(\"First signal catched!\"\
+    )\n\tcase \"second\":\n\t\tfmt.Println(\"Second signal handled!\")\n\tdefault:\n\
+    \t\tfmt.Println(\"Undefined signal\")\n\t}\n}\n\nfunc main() {\n    defer panicHandler()\n\
+    \n    panic(?)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20824#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 19 Nov 2022 18:48:53 UTC"
+record: -1

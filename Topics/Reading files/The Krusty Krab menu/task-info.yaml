@@ -1,0 +1,74 @@
+type: remote_edu
+files:
+- name: galley_grub.txt
+  visible: false
+  text: |-
+    Krabby Pattie $2.00
+    Krusty Combo $3.99
+    Krusty Deluxe $3.00
+    Seaweed Salad $1.50
+    Coral Bits $1.95
+  learner_created: false
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import (
+        "fmt"
+        "log"
+        "os"
+    )
+
+    func main() {
+        file, err := ? // open the file here with the os.ReadFile() function
+        if err != nil {
+            log.Fatal(err) // exit if we have an unexpected error
+        }
+        // print the contents of the file here as a string
+    }
+  learner_created: false
+- name: tests.py
+  visible: false
+  text: |
+    import os
+
+    from hstest import StageTest, CheckResult, WrongAnswer, TestCase
+
+    inputs = [
+        "Krabby Pattie $2.00\nKrusty Combo $3.99\nKrusty Deluxe $3.00\nSeaweed Salad $1.50\nCoral Bits $1.95"
+    ]
+
+    FILENAME = "galley_grub.txt"
+
+
+    class TestAdmissionProcedure(StageTest):
+        def generate(self):
+            return [TestCase(stdin=[test], attach=[test]) for test in inputs]
+
+        def check(self, reply: str, attach: list):
+            if not os.path.exists(FILENAME):
+                raise WrongAnswer(f"Cannot find file {FILENAME}")
+
+            with open(FILENAME, "r", encoding="utf8") as f:
+                content = f.read().rstrip()
+                if reply.rstrip() != content:
+                    raise WrongAnswer(
+                        f"Incorrect! 😵❌ Wrong answer!\n"
+                    )
+
+            print(f"\n{reply}")
+            print("Welcome to the Krusty Krab! 🍔🥤🍟")
+            return CheckResult.correct()
+
+
+    if __name__ == '__main__':
+        TestAdmissionProcedure().run_tests()
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18737#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 12 Nov 2022 19:49:39 UTC"
+record: -1

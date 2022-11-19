@@ -1,0 +1,29 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import "fmt"
+
+    func main() {
+        ? func() {
+            if ?() != ? {
+                fmt.Println("catched!")
+            }
+        }()
+        var numbers = []int{1, 2, 3}
+        var index int
+
+        fmt.Scan(&index)
+
+        fmt.Println(numbers[index])
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20822#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 19 Nov 2022 19:03:10 UTC"
+record: -1

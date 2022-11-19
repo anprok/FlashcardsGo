@@ -1,0 +1,5 @@
+content:
+- Theory
+- Using struct tag directives
+- Using the JSON-to-Go struct converter
+- Deserializing to a struct

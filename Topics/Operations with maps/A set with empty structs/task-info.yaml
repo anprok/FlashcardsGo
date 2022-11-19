@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main() {\n\t// Create a set named\
+    \ 'mySet' with an empty struct as the value type below.\n\t// The set can have\
+    \ as many keys as you want; you can get creative!\n\tmySet := ?\n\n\n\tcheckSetTypeValues(mySet)\
+    \ // DO NOT delete this line!\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23507#comment
+status: Solved
+feedback:
+  message: <html>Passed. Well done!</html>
+  time: "Fri, 11 Nov 2022 21:56:17 UTC"
+record: -1

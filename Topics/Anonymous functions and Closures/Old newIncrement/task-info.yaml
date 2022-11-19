@@ -1,0 +1,28 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import "fmt"
+
+    func main() {
+        var number int
+        fmt.Scan(&number)
+
+        increment := func() {
+            number := number * 2 // nolint: gocritic
+            number++
+        }
+
+        increment()
+        fmt.Println(number)
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/22040#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 10 Nov 2022 19:36:29 UTC"
+record: -1

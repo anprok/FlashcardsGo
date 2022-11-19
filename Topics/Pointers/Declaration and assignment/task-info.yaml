@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main() {\n    var ? = new(?) // Create\
+    \ a pointer variable of the 'string' type\n    *? = \"?\"       // Asign \"my\
+    \ string\" to the variable behind the pointer\n\n    fmt.Println(*?) // print\
+    \ the variable referenced by your pointer variable here!  \n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15471#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Wed, 02 Nov 2022 21:17:50 UTC"
+record: -1

@@ -1,0 +1,28 @@
+<h2>Recover a panic</h2>
+<html><body><p>The code below can produce a <code class="language-go">panic</code> if you try to scan the out-of-bounds index:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var numbers = []int{1, 2, 3}
+    var index int
+
+    fmt.Scan(&amp;index)
+
+    fmt.Println(numbers[index])
+}
+
+// Input:
+// 3
+// Output:
+// panic: runtime error: index out of range [3] with length 3
+</code></pre>
+<p></p><div class="alert alert-primary">
+<p>Two conditions provide an out-of-bounds panic:</p>
+<ul>
+<li>it must be an iterable variable;</li>
+<li>an index or the bounds must be set implicitly.</li>
+</ul>
+<p></p></div>
+<p>You need to recover the <code class="language-go">panic</code> and print the message: <code class="language-go">"catched!"</code> if the <code class="language-go">panic</code> occurs.</p></body></html><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">3<br></code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">catched!</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>

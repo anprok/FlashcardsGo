@@ -1,0 +1,28 @@
+content:
+- Input Output
+- Pointers
+- Control statements
+- Loops
+- Packages
+- Arrays
+- Slices
+- Working with slices
+- Strings
+- Errors
+- Advanced Input
+- Structs
+- Maps
+- Functional decomposition
+- String builder
+- Debugging Go code
+- Advanced usage of structs
+- Methods
+- Interfaces
+- Anonymous functions and Closures
+- Defer statement
+- Operations with maps
+- Working with JSON
+- Serializing structured JSON
+- Writing data to files
+- Reading files
+- Panic and recover

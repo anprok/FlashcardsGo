@@ -1,0 +1,9 @@
+<p></p><div class="alert alert-primary"> Another common file format apart from .txt files are the .csv files — <strong>CSV</strong> stands for Comma Separated Values.<br/>
+<br/>
+A CSV file stores values that are separated by a specific <strong>delimiter</strong>, commonly a comma <code class="java">(,)</code>. However, there are other common delimiters like the semicolon (<code class="java">;</code>), a tab (<code class="java">\t</code>), blank spaces (<code class="java">" "</code>) and even the pipe character (<code class="java">|</code>).</div>
+<p>Below you can see the contents of <a href="https://stepik.org/media/attachments/lesson/809910/CSV_sample.csv" rel="noopener noreferrer nofollow" target="_blank">a sample CSV file</a>:</p>
+<pre><code class="java">Title,Artist,Album,Duration
+"Anti-Hero","Taylor Swift","Midnights",3:21
+"Midnight Rain","Taylor Swift","Midnights",2:54</code></pre>
+<p>Now that you've been acquainted with CSV files, your task is to create a Go program that <strong>writes</strong> the comma-separated values contained within the <code class="java">data</code> variable into the <em>songs.csv</em> file.</p>
+<p>To do this, you can use the <code class="java">os.WriteFile()</code> function to write the data directly into <em>songs.csv</em>, or you can use the <code class="java">os.Create()</code> function to create <em>songs.csv</em> first and then use <code class="java">fmt.Fprintln()</code> to write the data into the file.</p>

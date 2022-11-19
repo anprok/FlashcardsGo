@@ -1,0 +1,74 @@
+<h2>Legacy code</h2>
+<html><body><p>You get a legacy program. It reports the system status and outputs a message, depending on the total task count:</p>
+<ul>
+<li>0 tasks — <code class="language-go">"idle"</code>;</li>
+<li>1-2 tasks — <code class="language-go">"low"</code> workload;</li>
+<li>3-4 tasks — <code class="language-go">"average"</code> workload;</li>
+<li>from 5 tasks — system <code class="language-go">"overload"</code>.</li>
+</ul>
+<p>The count of tasks is a sum of active and pending tasks. You get it from the standard input. Rewrite the given code without using the recover function:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+const (
+    FiveTasks  = 5
+    ThreeTasks = 3
+    OneTask    = 1
+)
+
+func panicHandler() {
+    status := recover()
+    if status != nil {
+        fmt.Println(status)
+    } else {
+        fmt.Println("idle")
+    }
+}
+
+func main() {
+    defer panicHandler()
+
+    var activeTasks, pendingTasks int
+    fmt.Scan(&amp;activeTasks, &amp;pendingTasks)
+
+    totalTaskCount := activeTasks + pendingTasks
+
+    switch {
+    case totalTaskCount &gt;= FiveTasks:
+        panic("overload")
+    case totalTaskCount &gt;= ThreeTasks:
+        panic("average")
+    case totalTaskCount &gt;= OneTask:
+        panic("low")
+    }
+}
+</code></pre>
+<p>If you have any difficulties with this task, use the hint:</p>
+<p><button class="btn-sm btn-outline-secondary" onclick="getElementById('hint-1301').style.display='inline'">
+        Hint
+      </button>
+</p><div id="hint-1301" style="display:none;">
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var activeTasks, pendingTasks int
+    fmt.Scan(&amp;activeTasks, &amp;pendingTasks)
+
+    totalTaskCount := activeTasks + pendingTasks
+
+    switch {
+    case totalTaskCount &gt;= FiveTasks:
+        fmt.Println("overload")
+    case totalTaskCount &gt;= ?:
+        fmt.Println("?")
+    case totalTaskCount &gt;= ?:
+        fmt.Println("?")
+    default:
+        fmt.Println("?")
+    }
+}
+</code></pre>
+<p></p></div></body></html><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">1 1<br></code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">low</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>

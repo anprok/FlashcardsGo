@@ -1,0 +1,62 @@
+type: remote_edu
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"log\"\n\t\"os\"\n)\n\nfunc main() {\n\t// DO\
+    \ NOT modify the contents of the `data` variable!\n\tdata := `Title,Artist,Album,Duration\n\
+    \"Fix You\",\"Coldplay\",\"X&Y\",4:56\n\"Clocks\",\"Coldplay\",\"A Rush of Blood\
+    \ to the Head\",5:08\n\"Yellow\",\"Coldplay\",\"Parachutes\",4:27\n\"Summertime\
+    \ Sadness\",\"Lana Del Rey\",\"Born to Die\",4:25\n\"Young and Beautiful\",\"\
+    Lana Del Rey\",\"Born to Die\",3:56\n\"Pumped Up Kicks\",\"Foster the People\"\
+    ,\"Torches\",3:59\n`\n\t// Write the data to the \"songs.csv\" file below\n\t\
+    // You can use the os.WriteFile() to write the data directly to \"songs.csv\"\n\
+    \t// Or you can use the os.Create() to create \"songs.csv\" and then use fmt.Fprintln()\
+    \ to write the data.\n}\n"
+  learner_created: false
+- name: tests.py
+  visible: false
+  text: |-
+    import os
+
+    from hstest import StageTest, CheckResult, WrongAnswer, TestCase
+
+    data = """Title,Artist,Album,Duration
+    "Fix You","Coldplay","X&Y",4:56
+    "Clocks","Coldplay","A Rush of Blood to the Head",5:08
+    "Yellow","Coldplay","Parachutes",4:27
+    "Summertime Sadness","Lana Del Rey","Born to Die",4:25
+    "Young and Beautiful","Lana Del Rey","Born to Die",3:56
+    "Pumped Up Kicks","Foster the People","Torches",3:59"""
+
+    FILENAME = "songs.csv"
+
+
+    class Test(StageTest):
+        def generate(self):
+            return [TestCase(stdin=data, attach=data)]
+
+        def check(self, reply: str, attach: str):
+            if not os.path.exists(FILENAME):
+                raise WrongAnswer(f"Wrong! No file named {FILENAME} was found!")
+
+            with open(FILENAME, "r") as f:
+                content = f.read().strip()
+                if content != attach:
+                    raise WrongAnswer(
+                        f'Invalid content of {FILENAME} file, got:\n{content}\n\nExpected:\n{attach}'
+                    )
+
+            print(f"Well done! Contents of songs.csv:\n\n{attach}")
+            return CheckResult.correct()
+
+
+    if __name__ == '__main__':
+        Test().run_tests()
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23520#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 12 Nov 2022 17:35:49 UTC"
+record: -1

@@ -1,0 +1,20 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\n// nolint: gomnd // <-- DO NOT delete this\
+    \ comment!\nfunc fahrenheitToCelsius(temperature float64) {\n\tcelsius := ?\n\t\
+    fmt.Printf(\"%.2f F\", celsius)\n}\n\n// nolint: gomnd // <-- DO NOT delete this\
+    \ comment!\nfunc celsiusToFahrenheit(temperature float64) {\n\tfahrenheit := ?\n\
+    \tfmt.Printf(\"%.2f C\", fahrenheit)\n}\n\n// Create a function convertTemperature()\
+    \ that takes `temperature` and `unit` as arguments\n// And then calls the correct\
+    \ function to convert the temperature based on the `unit`\nfunc convertTemperature(?\
+    \ float64, ? string) {\n\tif unit == \"F\" {\n\t\t// call the function that converts\
+    \ Fahrenheit to Celsius here!\n\t}\n\n\tif unit == \"?\" {\n\t\t?\n\t}\n}\n\n\
+    // DO NOT delete or modify the contents of the main() function!\nfunc main() {\n\
+    \tvar temperature float64\n\tvar unit string\n\tfmt.Scanln(&temperature, &unit)\n\
+    \n    convertTemperature(temperature, unit)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23517#comment
+status: Unchecked
+record: -1

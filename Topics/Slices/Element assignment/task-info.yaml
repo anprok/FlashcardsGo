@@ -1,0 +1,24 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import (
+        "fmt"
+        "bufio"
+        "os"
+        "strconv"
+    )
+
+    func solve(s []string, i int) {
+        // Put your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15663#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 03 Nov 2022 12:58:10 UTC"
+record: -1

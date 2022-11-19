@@ -1,0 +1,12 @@
+<h2>Scoped deferred statements</h2>
+<p>Below you will see a small code snippet that contains scoped and deferred anonymous functions:</p>
+<pre><code class="language-go">func scopedDefer() (x int) {
+    x--
+    defer func() { x += 10 }()
+    {
+        defer func() { x *= 2 }()
+    }
+    x--
+    return
+}</code></pre>
+<p>Please select the final value of <code class="language-go">x</code> when the <code class="language-go">scopedDefer()</code> function is completed; take notice that the initial value of <code class="language-go">x</code> is <code class="language-go">0</code>.</p>

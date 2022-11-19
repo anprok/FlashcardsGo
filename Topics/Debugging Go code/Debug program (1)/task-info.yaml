@@ -1,0 +1,16 @@
+type: code
+custom_name: Debug program
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc main() {\n\tvar prev, current\
+    \ = 0, 1\n\tfor i := 0; i < 10; i++ {\n\t\tprev = current\n\t\tcurrent = fibonacci(prev,\
+    \ current)\n\t\tfmt.Println(current)\n\t}\n}\n\nfunc fibonacci(prev, current int)\
+    \ int {\n\treturn prev + current\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23086#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Tue, 08 Nov 2022 21:26:12 UTC"
+record: -1

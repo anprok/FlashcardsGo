@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc solve(ptr *int) int {\n\tvar ? = ?\
+    \ // assign the value of the pointer 'ptr' to the variable 'num'\n\n\treturn ?\
+    \ // return the value of the variable 'num'\n}\n\n// DO NOT change the contents\
+    \ of the main function!\nfunc main() {\n\tvar num = new(int)\n\tfmt.Scan(num)\n\
+    \n\tvar test = solve(num)\n\tfmt.Println(test)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15468#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Wed, 02 Nov 2022 21:14:15 UTC"
+record: -1
